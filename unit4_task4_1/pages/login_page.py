@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 from .base_page import BasePage
 from .locators import LoginPageLocators
 
@@ -9,7 +12,6 @@ class LoginPage(BasePage):
         self.should_be_register_form()
 
     def should_be_login_url(self):
-        print("current_url:", self.browser.current_url)
         assert "/login" in self.browser.current_url, "substring '/login' should be in current url"
 
     def should_be_login_form(self):
