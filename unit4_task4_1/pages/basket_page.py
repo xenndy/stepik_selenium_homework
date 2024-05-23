@@ -12,9 +12,6 @@ class BasketPage(BasePage):
 
     def shoud_be_message_about_empty_basket(self):
         basket_text = self.browser.find_element(*BasketPageLocators.TEXT_ABOUT_ITEMS_IN_BASKET).text
-        print("\ntext about items:", basket_text)
         msg_ru = "Ваша корзина пуста"
         msg_en = "Your basket is empty"
         assert msg_ru or msg_en in basket_text, f"Should be message '{msg_en}'"
-
-

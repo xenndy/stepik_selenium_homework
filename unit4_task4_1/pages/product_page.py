@@ -23,9 +23,7 @@ class ProductPage(BasePage):
 
     def message_should_contain_product_name(self):
         product = self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
-        print("\nprod name:", product)
         product_in_basket = self.browser.find_element(*ProductPageLocators.PRODUCT_IN_BASKET).text
-        print("product_in_basket:", product_in_basket)
         assert product == product_in_basket, f"Wrong name of product in basket! Should be '{product}'"
 
     def should_be_basket_total_price_message(self):
@@ -34,9 +32,7 @@ class ProductPage(BasePage):
 
     def message_should_contain_product_price(self):
         product_price = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
-        # print("\nproduct price:", product_price)
         basket_price = self.browser.find_element(*ProductPageLocators.TOTAL_BASKET_PRICE).text
-        # print("basket_price:", basket_price)
         assert product_price == basket_price, f"Wrong total basket price! Should be '{product_price}'"
 
     def should_not_be_success_message(self):
